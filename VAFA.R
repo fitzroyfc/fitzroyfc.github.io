@@ -26,7 +26,7 @@ for(rnd in 1:max(temp$Round)){
 		ratings <- ratings / mean(ratings)
 	}
 	round(cbind(ratings[order(ratings,decreasing=TRUE),]),2)
-	ratings[ratings>3] <- 3
+	ratings[ratings>2] <- 2
 	team_ratings <- cbind(team_ratings,ratings)
 	team_rank <- cbind(team_rank,rank(-ratings,ties.method='random'))
 }
