@@ -4,8 +4,12 @@ library(tidyverse)
 options(warn=-1)
 
 sname <- gs_title('Fitzroy 2019')
+<<<<<<< HEAD
 temp <- gs_read(sname,ws='Stats')
 temp <- subset(temp,!Stat%in%c('Turnover Goals','Stoppage Goals','Free Kick Goals'))
+=======
+temp <- gs_read(sname,ws=3)
+>>>>>>> a46bc6ffb791981acf854dcbc1b672d59b40c9fd
 
 fixs <- gs_read(sname,ws='FI',range='A2:J23')
 fixs <- subset(fixs,!(Round%in%c('F1','F2','F3')))
@@ -49,8 +53,13 @@ temp <- rbind(temp,data.frame(Round=fixs$Round,Oppo=fixs$Opponent,Stat='All Clea
 
 
 temp$Key <- factor(with(temp,paste(Oppo,Round)),unique(with(fixs,paste(Opponent,Round))))
+<<<<<<< HEAD
 temp <- subset(temp,!Stat%in%c('Forward Pressure Acts'))
 temp$Stat <- factor(temp$Stat,c('Points','Scoring Shots','Inside 50s','Scores per IN50 %','F50 Marks','F50 Marks per IN50','Intercepts','Int Marks per Oppo IN50','Square Ups','Centre Clearances','BU+TI Clearances','All Clearances','Repeat Stoppages','Tackles','Blocks','Handball Receives'))
+=======
+temp <- subset(temp,!Stat%in%c('Forward Pressure Acts','Intercepts'))
+temp$Stat <- factor(temp$Stat,c('Points','Scoring Shots','Inside 50s','Scores per IN50 %','F50 Marks','F50 Marks per IN50','Int Marks per Oppo IN50','Square Ups','Centre Clearances','BU+TI Clearances','All Clearances','Repeat Stoppages','Tackles','Blocks','Handball Receives'))
+>>>>>>> a46bc6ffb791981acf854dcbc1b672d59b40c9fd
 
 
 For <- with(temp,tapply(For,Stat,function(x) mean(x,na.rm=TRUE)))
@@ -75,6 +84,7 @@ p <- p+xlab('')
 p <- p+ylab('')
 ggsave(p,filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/2019 Stats.png',height=18,width=14)
 
+<<<<<<< HEAD
 temp <- gs_read(sname,ws='Stats')
 goal <- subset(temp,Stat%in%c('Turnover Goals','Stoppage Goals','Free Kick Goals'))
 goal <- rbind(goal,tibble(
@@ -115,6 +125,8 @@ p <- p + geom_hline(data = avgs,mapping=aes(yintercept=Value,colour=Team),lty=2)
 p <- p + coord_flip()
 ggsave(p,filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/2019 Goals.png',height=11,width=14)
 
+=======
+>>>>>>> a46bc6ffb791981acf854dcbc1b672d59b40c9fd
 sname <- gs_title('Fitzroy 2019')
 test <- gs_read(sname,ws=4)
 
