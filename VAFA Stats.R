@@ -3,6 +3,7 @@ library(googlesheets)
 library(tidyverse)
 options(warn=-1)
 
+gs_auth()
 sname <- gs_title('Fitzroy 2019')
 temp <- gs_read(sname,ws='Stats')
 temp <- subset(temp,!Stat%in%c('Turnover Goals','Stoppage Goals','Free Kick Goals'))
