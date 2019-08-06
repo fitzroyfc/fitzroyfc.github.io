@@ -2,7 +2,7 @@ require(readxl)
 library(googlesheets)
 
 sname <- gs_title('Fitzroy 2019')
-temp <- gs_read(sname,ws=2)
+temp <- gs_read(sname,ws='Fixture')
 temp <- with(temp,data.frame(Round,Home_1,Away_1,HS,AS))
 temp <- subset(temp,!is.na(temp$HS))
 names(temp) <- c('Round','Home','Away','HS','AS')

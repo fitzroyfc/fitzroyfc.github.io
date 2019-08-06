@@ -117,7 +117,7 @@ p <- p + coord_flip()
 ggsave(p,filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/2019 Goals.png',height=11,width=14)
 
 sname <- gs_title('Fitzroy 2019')
-test <- gs_read(sname,ws=4)
+test <- gs_read(sname,ws='PlyStats')
 
 plyavg <- test %>% 
       group_by(Player) %>% 
