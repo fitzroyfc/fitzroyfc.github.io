@@ -171,8 +171,8 @@ Leader_Stepped <- temp %>% top_n(5,Stepped) %>% arrange(desc(Stepped)) %>% selec
 Leader_FA <- temp %>% top_n(5,FA) %>% arrange(desc(FA)) %>% select(Player,Round,Opposition,'Free Against'=FA)
 Leader_Fifty <- temp %>% top_n(5,Fifty) %>% arrange(desc(Fifty)) %>% select(Player,Round,Opposition,Fifty)
 Leader_Total <- temp %>% top_n(15,Total) %>% arrange(desc(Total)) %>% select(Player,Round,Opposition,Total)
-Leader_Intensity <- temp %>% top_n(5,Intensity) %>% arrange(desc(Intensity)) %>% select(Player,Round,Opposition,Intensity)
-Leader_Speed <- temp %>% top_n(5,Speed) %>% arrange(desc(Speed)) %>% select(Player,Round,Opposition,Speed) %>% mutate(Speed = format(round(Speed,1),nsmall=1) %>% rename('Max Speed\n(km/h)'=Speed)
+Leader_Distance <- temp %>% top_n(5,Distance) %>% arrange(desc(Distance)) %>% select(Player,Round,Opposition,Distance) %>% rename('Distance\n(km)'=Distance)
+Leader_Speed <- temp %>% top_n(5,Speed) %>% arrange(desc(Speed)) %>% select(Player,Round,Opposition,Speed) %>% mutate(Speed = format(round(Speed,1),nsmall=1)) %>% rename('Max Speed\n(km/h)'=Speed)
 Leader_Hard <- temp %>% top_n(5,Hard) %>% arrange(desc(Hard)) %>% select(Player,Round,Opposition,Hard) %>% rename('Hard Running\n(m)'=Hard)
 
 pngTable(head(Leader_Tackle,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Tackles.png',hc=1,ht=200,wt=500)
@@ -182,7 +182,7 @@ pngTable(head(Leader_Spoil,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.
 pngTable(head(Leader_Smother,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Smother.png',hc=1,ht=200,wt=500)
 pngTable(head(Leader_Knockon,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Knockon.png',hc=1,ht=200,wt=500)
 pngTable(head(Leader_Total,15),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Total.png',hc=1,ht=600,wt=500)
-pngTable(head(Leader_Intensity,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Intensity.png',hc=1,ht=200,wt=500)
+pngTable(head(Leader_Distance,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Distance.png',hc=1,ht=200,wt=500)
 pngTable(head(Leader_Speed,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Top Speed.png',hc=1,ht=200,wt=500)
 pngTable(head(Leader_Hard,5),filename='C:/Users/karl.jackson/dropbox/fitzroyfc.github.io/Game Records - Hard Running.png',hc=1,ht=200,wt=500)
 
