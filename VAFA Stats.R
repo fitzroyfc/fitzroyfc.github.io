@@ -171,7 +171,7 @@ Leader_Stepped <- temp %>% top_n(5,Stepped) %>% arrange(desc(Stepped)) %>% selec
 Leader_FA <- temp %>% top_n(5,FA) %>% arrange(desc(FA)) %>% select(Player,Round,Opposition,'Free Against'=FA)
 Leader_Fifty <- temp %>% top_n(5,Fifty) %>% arrange(desc(Fifty)) %>% select(Player,Round,Opposition,Fifty)
 Leader_Total <- temp %>% top_n(20,Total) %>% arrange(desc(Total)) %>% select(Player,Round,Opposition,Total)
-Leader_Distance <- temp %>% top_n(10,Distance) %>% arrange(desc(Distance)) %>% select(Player,Round,Opposition,Distance) %>% rename('Distance\n(km)'=Distance)
+Leader_Distance <- temp %>% top_n(10,Distance) %>% arrange(desc(Distance)) %>% select(Player,Round,Opposition,Distance) %>% mutate(Distance = format(round(Distance,1),nsmall=1)) %>% rename('Distance\n(km)'=Distance)
 Leader_Speed <- temp %>% top_n(10,Speed) %>% arrange(desc(Speed)) %>% select(Player,Round,Opposition,Speed) %>% mutate(Speed = format(round(Speed,1),nsmall=1)) %>% rename('Max Speed\n(km/h)'=Speed)
 Leader_Hard <- temp %>% top_n(10,Hard) %>% arrange(desc(Hard)) %>% select(Player,Round,Opposition,Hard) %>% rename('Hard Running\n(m)'=Hard)
 
